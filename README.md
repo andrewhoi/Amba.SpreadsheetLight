@@ -1,8 +1,13 @@
 ## Amba.SpreadsheetLight
 
-This is the fork from www.spreadsheetlight.com library.
+The library is for reading and creating Excel files in OpenXml format.
+Compatible wtih Microsoft Excel 2007/2010/2013 and LibreOffice Calc.
 
-This library is for reading and creating Excel (LibreOffice Calc) files in OpenXml format and based on "DocumentFormat.OpenXml 2.0.0" library.
+This is the fork from www.spreadsheetlight.com library with some improvements.
+
+Library was merged with required old version of DocumentFormat.OpenXml to allow use new one.
+
+
 
 ####How to start
     
@@ -22,4 +27,14 @@ Example:
     }
 
 You can find more tutorial and examples on [Tutorial](http://spreadsheetlight.com/tutorial/) and [Samples](http://spreadsheetlight.com/sample-code/) on [SpreadsheetLight site](www.spreadsheetlight.com).
+
+## Changelog
+
+**1.0.0** (March, 05 2015)
+
+* Added: **SetDefinedNameValue<T>** method to SLDocument class.
+* Fixed: restore **row heights** after inserting/deleting row(s).
+* dll merged with required old version of DocumentFormat.OpenXml to allow use new one.
+
+
 

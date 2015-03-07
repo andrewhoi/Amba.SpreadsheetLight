@@ -9,10 +9,18 @@
     <projectUrl>https://github.com/AmbaCloud/Amba.SpreadsheetLight</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <licenseUrl>https://github.com/AmbaCloud/Amba.SpreadsheetLight/blob/master/LICENSE</licenseUrl>
-    <summary>Open source developer-friendly spreadsheet library compatible with Microsoft Excel 2007/2010/2013 and LibreOffice Calc.</summary>
-    <description>Open source developer-friendly spreadsheet library compatible with Microsoft Excel 2007/2010/2013 and LibreOffice Calc.</description>
-    <copyright>Copyright 2011-2015 Vladimir Kuznetsov, Vincent Tan Wai Lip</copyright>
-    <tags>SpreadsheetLight OpenXml Report AmbaCloud Excel Amba</tags>
+    <releaseNotes>
+      1.0.0 (March, 05 2015)
+      - Added: SetDefinedNameValue&lt;T&gt;
+      method to SLDocument class.
+      - Fixed: restore row heights after inserting/deleting row(s).
+      - dll merged with required old version of DocumentFormat.OpenXml to allow use new one.
+    </releaseNotes>
+    <summary>Read and create Excel files in OpenXml format. Based on SpreadsheetLight library and merged with old version of DocumentFormat.OpenXml to allow use new one.</summary>
+    <description>Read and create Excel files in OpenXml format. Based on SpreadsheetLight library and merged with old version of DocumentFormat.OpenXml to allow use new one.
+    </description>
+    <copyright>Copyright 2015 Vladimir Kuznetsov</copyright>
+    <tags>Spreadsheet OpenXml DocumentFormat.OpenXml Report Excel</tags>
     <dependencies>
     </dependencies>
   </metadata>
