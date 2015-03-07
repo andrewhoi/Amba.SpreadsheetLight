@@ -32,7 +32,7 @@ You can find more tutorial and examples on [Tutorial](http://spreadsheetlight.co
 
 **1.0.0** (March, 05 2015)
 
-* Added: **SetDefinedNameValue<T>** method to SLDocument class.
+* Added: **SetDefinedNameValue&lt;T&gt;** method to SLDocument class.
 * Fixed: restore **row heights** after inserting/deleting row(s).
 * dll merged with required old version of DocumentFormat.OpenXml to allow use new one.
 
