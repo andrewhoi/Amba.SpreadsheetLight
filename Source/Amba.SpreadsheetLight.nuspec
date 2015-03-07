@@ -8,7 +8,7 @@
     <owners>Vladimir Kuznetsov</owners>
     <projectUrl>https://github.com/AmbaCloud/Amba.SpreadsheetLight</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
-    <licenseUrl>https://github.com/AmbaCloud/Amba.SpreadsheetLight/blob/master/LICENSE.md</licenseUrl>
+    <licenseUrl>https://github.com/AmbaCloud/Amba.SpreadsheetLight/blob/master/LICENSE</licenseUrl>
     <summary>Open source developer-friendly spreadsheet library compatible with Microsoft Excel 2007/2010/2013 and LibreOffice Calc.</summary>
     <description>Open source developer-friendly spreadsheet library compatible with Microsoft Excel 2007/2010/2013 and LibreOffice Calc.</description>
     <copyright>Copyright 2011-2015 Vladimir Kuznetsov, Vincent Tan Wai Lip</copyright>

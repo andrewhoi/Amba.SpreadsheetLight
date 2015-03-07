@@ -6,6 +6,12 @@ This library is for reading and creating Excel (LibreOffice Calc) files in OpenX
 
 ####How to start
     
+Install with nuget:
+
+    PM> Install-Package Amba.SpreadsheetLight
+
+Example:
+
     using (SLDocument sl = new SLDocument("Template.xlsx"))
     {
         if (sl.SelectWorksheet("Sheet1"))

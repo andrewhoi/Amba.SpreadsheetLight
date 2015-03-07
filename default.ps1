@@ -67,7 +67,8 @@ task Merge -depends Build{
 	New-Item $dist_directory\lib\net40 -Type Directory | Out-Null
 	$input_dlls = "$output_directory\Amba.SpreadsheetLight.dll $output_directory\DocumentFormat.OpenXml.dll" 
 	
-	Invoke-Expression "$ilmerge_path /targetplatform:v4 /internalize /allowDup /target:library /out:$dist_directory\lib\net40\Amba.SpreadsheetLight.dll $input_dlls"
+	Invoke-Expression "$ilmerge_path /targetplatform:v4 /internalize /allowDup /ndebug /target:library /out:$dist_directory\lib\net40\Amba.SpreadsheetLight.dll $input_dlls"
+	
 	Write-Host "Finished."
 	Write-Host $nl
 }
