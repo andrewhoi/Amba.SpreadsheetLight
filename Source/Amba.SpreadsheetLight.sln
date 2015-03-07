@@ -1,0 +1,56 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amba.SpreadsheetLight", "Amba.SpreadsheetLight\Amba.SpreadsheetLight.csproj", "{94989F53-31DE-49E3-8693-A708B32A481D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Amba.SpreadsheetLight.Test", "Amba.SpreadsheetLight.Test\Amba.SpreadsheetLight.Test.csproj", "{BB4EDB58-A781-4868-853D-B5A6569E61E3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{529126B6-0322-4FAE-A2F8-39357B5D3FC9}"
+	ProjectSection(SolutionItems) = preProject
+		Amba.SpreadsheetLight.nuspec = Amba.SpreadsheetLight.nuspec
+		Source.licenseheader = Source.licenseheader
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Parent", "Parent", "{B2F2CF3A-30B3-4035-A29F-BDBDAB6A9687}"
+	ProjectSection(SolutionItems) = preProject
+		..\.gitattributes = ..\.gitattributes
+		..\.gitignore = ..\.gitignore
+		..\build.ps1 = ..\build.ps1
+		..\Changelog.md = ..\Changelog.md
+		..\default.ps1 = ..\default.ps1
+		..\LICENSE.md = ..\LICENSE.md
+		..\README.md = ..\README.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{EE6B492E-15C5-4528-AE77-A1315543B41B}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+		.nuget\packages.config = .nuget\packages.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94989F53-31DE-49E3-8693-A708B32A481D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94989F53-31DE-49E3-8693-A708B32A481D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94989F53-31DE-49E3-8693-A708B32A481D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94989F53-31DE-49E3-8693-A708B32A481D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BB4EDB58-A781-4868-853D-B5A6569E61E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BB4EDB58-A781-4868-853D-B5A6569E61E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BB4EDB58-A781-4868-853D-B5A6569E61E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BB4EDB58-A781-4868-853D-B5A6569E61E3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B2F2CF3A-30B3-4035-A29F-BDBDAB6A9687} = {529126B6-0322-4FAE-A2F8-39357B5D3FC9}
+	EndGlobalSection
+EndGlobal
