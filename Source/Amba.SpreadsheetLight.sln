@@ -19,9 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Parent", "Parent", "{B2F2CF
 		..\.gitattributes = ..\.gitattributes
 		..\.gitignore = ..\.gitignore
 		..\build.ps1 = ..\build.ps1
-		..\Changelog.md = ..\Changelog.md
 		..\default.ps1 = ..\default.ps1
-		..\LICENSE.md = ..\LICENSE.md
+		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
 	EndProjectSection
 EndProject
