@@ -24,11 +24,12 @@ bld/
 
 
 # NuGet Packages Directory
-packages/*
-Amba.SpreadsheetLight/packages/*
+packages/
+
 ## TODO: If the tool you use requires repositories.config
 ## uncomment the next line
 #!packages/repositories.config
+
 
 # Backup & report files from converting an old project file
 # to a newer Visual Studio version. Backup files are not needed,
