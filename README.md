@@ -36,5 +36,9 @@ You can find more tutorial and examples on [Tutorial](http://spreadsheetlight.co
 * Fixed: restore **row heights** after inserting/deleting row(s).
 * dll merged with required old version of DocumentFormat.OpenXml to allow use new one.
 
+## License
 
+The MIT License (MIT)
+
+Copyright (c) 2011-2015 Vladimir Kuznetsov, Vincent Tan Wai Lip
 
