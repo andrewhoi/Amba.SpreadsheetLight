@@ -30,11 +30,14 @@ You can find more tutorial and examples on [Tutorial](http://spreadsheetlight.co
 
 ## Changelog
 
-**1.0.0** (March, 05 2015)
+**1.1.0** (March 22, 2015)
+- Added: SLDocument.WhatIsRowStartRowCount static method for work with string range ('A1', 'A1:B2', 'Sheet!8:9')
 
-* Added: **SetDefinedNameValue&lt;T&gt;** method to SLDocument class.
-* Fixed: restore **row heights** after inserting/deleting row(s).
-* dll merged with required old version of DocumentFormat.OpenXml to allow use new one.
+**1.0.0** (March 05, 2015)
+
+- Added: **SetDefinedNameValue&lt;T&gt;** method to SLDocument class.
+- Fixed: restore **row heights** after inserting/deleting row(s).
+- dll merged with required old version of DocumentFormat.OpenXml to allow use new one.
 
 ## License
 

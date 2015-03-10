@@ -51,7 +51,7 @@ task Test -depends Build {
 
 task NuGetPackage -depends Build, Merge {
 
-	$packageVersion = "1.0.0"
+	$packageVersion = "1.1.0"
 	
 	Write-Host ("Creating NuGet Package v{0}" -f $packageVersion) -ForegroundColor Green
 	
