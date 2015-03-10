@@ -30,6 +30,27 @@ namespace Amba.SpreadsheetLight.Test
     {
         private static string testTemplatesPath = "Amba.SpreadsheetLight.Test.Files";
 
+        [Theory]
+        [InlineData("A1", 1, 1, true)]
+        [InlineData("Sheet!A1", 1, 1, true)]
+        [InlineData("Sheet!A1:A2", 1, 2, true)]
+        [InlineData("$A$1", 1, 1, true)]
+        [InlineData("Sheet!$A$1", 1, 1, true)]
+        [InlineData("Sheet!$A$1:$A$2", 1, 2, true)]
+        [InlineData("Sheet!8:8", 8, 1, true)]
+        [InlineData("Sheet!$8:$8", 8, 1, true)]
+        [InlineData("Sheet!$8:$10", 8, 3, true)]
+        [InlineData("Sheet!A:A", 0, 0, false)]
+        [InlineData("Sheet!A:B", 0, 0, false)]
+        public void WhatIsRowStartRowCount(string range, int row, int rowCount, bool result)
+        {
+            int r, n; r = n = 0;
+            var actual = SLDocument.WhatIsRowStartRowCount(range, out r, out n);
+            Assert.Equal(row, r);
+            Assert.Equal(rowCount, n);
+            Assert.Equal(result, actual);
+        }
+
         [Fact]
         public void ColumnWidth()
         {
@@ -67,7 +88,7 @@ namespace Amba.SpreadsheetLight.Test
 
         [Fact]
         public void RowHeight()
-        { 
+        {
             // Ensure rowheight after inserting, deleting
             // Arrange
             var tempFile = Path.Combine(Path.GetTempPath(), Path.GetRandomFileName()) + ".xlsx";
@@ -118,7 +139,7 @@ namespace Amba.SpreadsheetLight.Test
                 {
                     doc.CopyColumn(1, 2, 3, toCut);
                 }
-              
+
                 // Assert
                 var cellC4 = doc.GetCells().Where(c => c.Key.RowIndex == 4 && c.Key.ColumnIndex == 3).FirstOrDefault();
                 var cellD4 = doc.GetCells().Where(c => c.Key.RowIndex == 4 && c.Key.ColumnIndex == 4).FirstOrDefault();
@@ -127,7 +148,7 @@ namespace Amba.SpreadsheetLight.Test
 
                 doc.Save();
             }
-             //System.Diagnostics.Process.Start(tempFile);
+            //System.Diagnostics.Process.Start(tempFile);
             File.Delete(tempFile);
             Assert.False(File.Exists(tempFile));
         }
@@ -336,4 +357,8 @@ namespace Amba.SpreadsheetLight.Test
             Assert.False(File.Exists(tempFile));
         }
     }
+
+
+
+
 }

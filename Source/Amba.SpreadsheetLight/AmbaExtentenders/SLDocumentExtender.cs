@@ -25,6 +25,7 @@ namespace Amba.SpreadsheetLight
     using System;
     using System.Collections.Generic;
     using System.Linq;
+    using System.Text.RegularExpressions;
 
     /// <summary>
     /// Extensions for SLDocument class
@@ -212,6 +213,43 @@ namespace Amba.SpreadsheetLight
             {
                 doc.SetRowHeight(startRow + i, heights[i]);
             }
+        }
+
+    }
+
+    public partial class SLDocument
+    {
+        /// <summary>
+        /// Returns row's start index and row count in range, like 'A1', 'Sheet1!A1', 'Sheet1!A1:B2', 'Sheet1!8:9'
+        /// </summary>
+        /// <param name="Range"></param>
+        /// <param name="RowStart"></param>
+        /// <param name="RowCount"></param>
+        /// <returns></returns>
+        public static bool WhatIsRowStartRowCount(string Range, out int RowStart, out int RowCount)
+        {
+            RowStart = RowCount = 0;
+            var rng = Range.Replace("$", "").Substring(Range.IndexOf('!') + 1);
+            bool result = false;
+            var ar = rng.Split(':');
+            if (ar.Length > 2) return false;
+
+
+            var s1 = new string(ar[0].Where(ch => char.IsDigit(ch)).ToArray());
+            result = Int32.TryParse(s1, out RowStart);
+            if (!result) return result;
+            if (ar.Length == 1)
+            {
+                RowCount = 1;
+                return result;
+            }
+
+            var s2 = new string(ar[1].Where(ch => char.IsDigit(ch)).ToArray());
+            int rowEnd = -1;
+            result = Int32.TryParse(s2, out rowEnd);
+            if (result) { RowCount = rowEnd - RowStart + 1; }
+
+            return result;
         }
     }
 }
