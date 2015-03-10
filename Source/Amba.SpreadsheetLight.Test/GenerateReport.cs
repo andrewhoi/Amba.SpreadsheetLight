@@ -22,6 +22,7 @@
 // SOFTWARE.
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -49,10 +50,14 @@ namespace Amba.SpreadsheetLight.Test
                 foreach (var item in (JArray)jsonData1.GetValue("Items"))
                 {
                     var rangeRow = doc.GetDefinedNameText("Items");
-                    int r, c; r = c = 0;
-                    SLDocument.WhatIsRowColumnIndex(rangeRow, out r, out c);
+                    int r, cnt;
+                    SLDocument.WhatIsRowStartRowCount(rangeRow, out r, out cnt);
+                    doc.InsertRow(r + 1, cnt);
+                    doc.CopyRow(r, r + cnt - 1, r + cnt);
                 }
+                doc.Save();
             }
+            Process.Start(tempFile);
         }
         private string GetTempFileName()
         {
