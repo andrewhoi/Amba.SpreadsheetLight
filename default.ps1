@@ -10,7 +10,7 @@ Properties {
 
 	$buildNumber = 0
 	$version = "1.1.0"
-	$preRelease = "alpha"
+	$preRelease =  $null
 }
 
 $nl = [Environment]::NewLine

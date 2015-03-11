@@ -228,7 +228,24 @@ namespace Amba.SpreadsheetLight
         /// <returns></returns>
         public static bool WhatIsRowStartRowCount(string Range, out int RowStart, out int RowCount)
         {
+            int RowEnd;
             RowStart = RowCount = 0;
+            var result = WhatIsRowStartRowEnd(Range, out RowStart, out RowEnd);
+            if (result) RowCount = RowEnd - RowStart + 1;
+
+            return result;
+        }
+
+        /// <summary>
+        /// Returns row start and row end index in range, like 'A1', 'Sheet1!A1', 'Sheet1!A1:B2', 'Sheet1!8:9'
+        /// </summary>
+        /// <param name="Range"></param>
+        /// <param name="RowStart"></param>
+        /// <param name="RowEnd"></param>
+        /// <returns></returns>
+        public static bool WhatIsRowStartRowEnd(string Range, out int RowStart, out int RowEnd)
+        {
+            RowStart = RowEnd = 0;
             var rng = Range.Replace("$", "").Substring(Range.IndexOf('!') + 1);
             bool result = false;
             var ar = rng.Split(':');
@@ -240,14 +257,12 @@ namespace Amba.SpreadsheetLight
             if (!result) return result;
             if (ar.Length == 1)
             {
-                RowCount = 1;
+                RowEnd = RowStart;
                 return result;
             }
 
             var s2 = new string(ar[1].Where(ch => char.IsDigit(ch)).ToArray());
-            int rowEnd = -1;
-            result = Int32.TryParse(s2, out rowEnd);
-            if (result) { RowCount = rowEnd - RowStart + 1; }
+            result = Int32.TryParse(s2, out RowEnd);
 
             return result;
         }
