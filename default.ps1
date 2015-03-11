@@ -7,6 +7,10 @@ Properties {
 	$mstest_path = "C:\Program Files (x86)\Microsoft Visual Studio 12.0\Common7\IDE\CommonExtensions\Microsoft\TestWindow\vstest.console.exe"
 	$nuget_path = "$src_directory\.nuget\nuget.exe"
 	$ilmerge_path = "$src_directory\packages\ILMerge.2.14.1208\tools\ILMerge.exe"
+
+	$buildNumber = 0
+	$version = "1.1.0"
+	$preRelease = "alpha"
 }
 
 $nl = [Environment]::NewLine
@@ -16,11 +20,39 @@ FormatTaskName (("-"*25) + "[{0}]" + ("-"*25))
 Task Default -Depends Clean, Test, NuGetPackage
 
 
-Task Build -Depends Clean {	
+Task Build -Depends UpdateVersion, Clean {	
 
 	Write-Host "Building Amba.SpreadsheetLight.sln" -ForegroundColor Green
 
 	Exec { msbuild "$src_directory\Amba.SpreadsheetLight.sln" /t:Build /p:Configuration=Release /v:quiet /p:OutDir=$output_directory } 
+}
+
+Task UpdateVersion {
+	$vSplit = $version.Split('.')
+	
+	if($vSplit.Length -ne 3)
+	{
+		throw "Version number is invalid. Must be in the form of 0.0.0"
+	}
+	$major = $vSplit[0]
+	$minor = $vSplit[1]
+	$patch = $vSplit[2]
+	
+
+	$assemblyFileVersion =  "$major.$minor.$patch.$buildNumber"
+	$assemblyVersion = "$major.$minor.0.0"
+
+	Write-Host "Updating version" -ForegroundColor Green
+	Write-Host "AssemblyFileVersion: $($assemblyFileVersion)"
+	Write-Host "AssemblyVersion: $($assemblyVersion)"
+
+	$versionAssemblyInfoFile = "$src_directory/VersionAssemblyInfo.cs"
+	"using System.Reflection;" > $versionAssemblyInfoFile
+	"" >> $versionAssemblyInfoFile
+	"[assembly: AssemblyVersion(""$assemblyVersion"")]" >> $versionAssemblyInfoFile
+	"[assembly: AssemblyFileVersion(""$assemblyFileVersion"")]" >> $versionAssemblyInfoFile
+	Start-Sleep -s 1
+	Write-Host $nl
 }
 
 Task Clean {
@@ -51,9 +83,25 @@ task Test -depends Build {
 
 task NuGetPackage -depends Build, Merge {
 
-	$packageVersion = "1.1.0"
+	$vSplit = $version.Split('.')
+	if($vSplit.Length -ne 3)
+	{
+		throw "Version number is invalid. Must be in the form of 0.0.0"
+	}
+	$major = $vSplit[0]
+	$minor = $vSplit[1]
+	$patch = $vSplit[2]
+	$packageVersion =  "$major.$minor.$patch"
+	if($preRelease){
+		$packageVersion = "$packageVersion-$preRelease"
+	}
 	
-	Write-Host ("Creating NuGet Package v{0}" -f $packageVersion) -ForegroundColor Green
+	if ($buildNumber -ne 0){
+		$packageVersion = $packageVersion + "-build" + $buildNumber.ToString().PadLeft(5,'0')
+	}
+
+	Write-Host ("Creating NuGet Package version {0}" -f $packageVersion) -ForegroundColor Green
+	
 	
 	copy-item $src_directory\Amba.SpreadsheetLight.nuspec $dist_directory
 	copy-item $output_directory\Amba.SpreadsheetLight.xml $dist_directory\lib\net40\
