@@ -357,8 +357,4 @@ namespace Amba.SpreadsheetLight.Test
             Assert.False(File.Exists(tempFile));
         }
     }
-
-
-
-
 }

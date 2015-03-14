@@ -57,7 +57,9 @@ namespace Amba.SpreadsheetLight.Test
                 }
                 doc.Save();
             }
-            Process.Start(tempFile);
+            // Process.Start(tempFile);
+            File.Delete(tempFile);
+            Assert.False(File.Exists(tempFile));
         }
         private string GetTempFileName()
         {
