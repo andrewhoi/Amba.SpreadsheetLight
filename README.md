@@ -32,8 +32,8 @@ You can find more tutorial and examples on [Tutorial](http://spreadsheetlight.co
 
 **1.1.0** (March 22, 2015)
  
-- Added: SLDocument.WhatIsRowStartRowCount static method with string parameter ('A1', 'A1:B2', 'Sheet!8:9') that returns start row and row count in range.
-- Added: SLDocument.WhatIsRowStartRowEnd static method with string parameter ('A1', 'A1:B2', 'Sheet!8:9') that returns start and end row index in range.
+- Added: SLDocument.**WhatIsRowStartRowCount** static method with string parameter ('A1', 'A1:B2', 'Sheet!8:9') that returns start row and row count in range.
+- Added: SLDocument.**WhatIsRowStartRowEnd** static method with string parameter ('A1', 'A1:B2', 'Sheet!8:9') that returns start and end row index in range.
 
 **1.0.0** (March 05, 2015)
 
